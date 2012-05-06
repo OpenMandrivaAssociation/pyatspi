@@ -2,7 +2,7 @@
 
 Summary:	Python bindings for at-spi
 Name:		pyatspi
-Version:	2.3.91
+Version:	2.5.1
 Release:	1
 Group:		Development/Python
 License:	LGPLv2 and GPLv2
@@ -32,7 +32,6 @@ This package includes a python client library for at-spi.
 
 %build
 %configure2_5x \
-	--disable-relocate \
 	--build=%{_build}
 
 %make
