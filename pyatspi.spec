@@ -43,3 +43,14 @@ This package includes a python client library for at-spi.
 %doc COPYING COPYING.GPL AUTHORS README
 %{py_puresitedir}/pyatspi
 
+
+
+%changelog
+* Sun May 06 2012 Alexander Khrukin <akhrukin@mandriva.org> 2.5.1-1
++ Revision: 797184
+- verson update 2.5.1
+
+* Sun Mar 18 2012 Matthew Dawkins <mattydaw@mandriva.org> 2.3.91-1
++ Revision: 785465
+- imported package pyatspi
+
