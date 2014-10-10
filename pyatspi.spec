@@ -2,8 +2,8 @@
 
 Summary:	Python bindings for at-spi
 Name:		pyatspi
-Version:	2.8.0
-Release:	7
+Version:	2.14.0
+Release:	1
 Group:		Development/Python
 License:	LGPLv2 and GPLv2
 Url:		http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
@@ -11,7 +11,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/pyatspi/%{url_ver}/%{name}-%{ver
 BuildArch:	noarch
 BuildRequires:	python
 BuildRequires:	python3
-BuildRequires:	python3-gobject3-devel 
+BuildRequires:	python-gobject3-devel
 BuildRequires:	pkgconfig(pygobject-3.0) >= 2.90.1
 
 %description
@@ -34,17 +34,18 @@ Requires:	python-gi
 # both pkgs are incorrect
 %rename		pyatspi
 %rename		python-pyatspi
+%rename		python3-atspi
 
 %description -n python-atspi
 This package includes a python client library for at-spi.
 
-%package -n python3-atspi
+%package -n python2-atspi
 Summary:	Python3 bindings for at-spi
 Group:		Development/Python
-Requires:	python3-dbus
-Requires:	python3-gobject3
+Requires:	python2-dbus
+Requires:	python2-gobject3
 
-%description -n python3-atspi
+%description -n python2-atspi
 This package includes a python3 client library for at-spi.
 
 %prep
@@ -54,6 +55,7 @@ cp -a . ../py3build
 mv ../py3build .
 
 %build
+export PYTHON=%{__python2}
 %configure2_5x \
 	--build=%{_build}
 
@@ -71,9 +73,9 @@ popd
 
 %files -n python-atspi
 %doc COPYING COPYING.GPL AUTHORS README
-%{py_puresitedir}/pyatspi
-
-%files -n python3-atspi
-%doc COPYING COPYING.GPL AUTHORS README
 %{py3_puresitedir}/pyatspi
+
+%files -n python2-atspi
+%doc COPYING COPYING.GPL AUTHORS README
+%{py2_puresitedir}/pyatspi
 
