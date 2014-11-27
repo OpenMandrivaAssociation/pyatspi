@@ -55,12 +55,12 @@ cp -a . ../py3build
 mv ../py3build .
 
 %build
-export PYTHON=%{__python2}
+export PYTHON=python2
 %configure2_5x \
 	--build=%{_build}
 
 pushd py3build
-export PYTHON=%{__python3}
+export PYTHON=python3
 %configure2_5x \
 	--build=%{_build}
 popd
