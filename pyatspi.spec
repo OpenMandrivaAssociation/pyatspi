@@ -42,7 +42,7 @@ This package includes a python client library for at-spi.
 %package -n python2-atspi
 Summary:	Python3 bindings for at-spi
 Group:		Development/Python
-Requires:	python2-dbus
+Requires:	python-dbus
 Requires:	python-gobject3
 
 %description -n python2-atspi
