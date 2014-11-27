@@ -2,18 +2,17 @@
 
 Summary:	Python bindings for at-spi
 Name:		pyatspi
-Version:	2.5.1
+Version:	2.14.0
 Release:	1
 Group:		Development/Python
 License:	LGPLv2 and GPLv2
-URL:		http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
-Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/pyatspi/%{url_ver}/%{name}-%{version}.tar.xz
 BuildArch:	noarch
-
-BuildRequires:  python
-BuildRequires:  pkgconfig(pygobject-3.0) >= 2.90.1
-
-Requires:	python-dbus
+BuildRequires:	python
+BuildRequires:	python3
+BuildRequires:	python-gobject3-devel
+BuildRequires:	pkgconfig(pygobject-3.0) >= 2.90.1
 
 %description
 at-spi allows assistive technologies to access GTK-based
@@ -27,30 +26,56 @@ ORBIT / CORBA for its transport protocol.
 
 This package includes a python client library for at-spi.
 
+%package -n python-atspi
+Summary:	Python bindings for at-spi
+Group:		Development/Python
+Requires:	python-dbus
+Requires:	python-gi
+# both pkgs are incorrect
+%rename		pyatspi
+%rename		python-pyatspi
+%rename		python3-atspi
+
+%description -n python-atspi
+This package includes a python client library for at-spi.
+
+%package -n python2-atspi
+Summary:	Python3 bindings for at-spi
+Group:		Development/Python
+Requires:	python2-dbus
+Requires:	python2-gobject3
+
+%description -n python2-atspi
+This package includes a python3 client library for at-spi.
+
 %prep
 %setup -q
+mkdir ../py3build
+cp -a . ../py3build
+mv ../py3build .
 
 %build
+export PYTHON=%{__python2}
 %configure2_5x \
 	--build=%{_build}
+
+pushd py3build
+export PYTHON=%{__python3}
+%configure2_5x \
+	--build=%{_build}
+popd
 
 %make
 
 %install
 %makeinstall_std
+%makeinstall_std -C py3build
 
-%files
+%files -n python-atspi
 %doc COPYING COPYING.GPL AUTHORS README
-%{py_puresitedir}/pyatspi
+%{py3_puresitedir}/pyatspi
 
-
-
-%changelog
-* Sun May 06 2012 Alexander Khrukin <akhrukin@mandriva.org> 2.5.1-1
-+ Revision: 797184
-- verson update 2.5.1
-
-* Sun Mar 18 2012 Matthew Dawkins <mattydaw@mandriva.org> 2.3.91-1
-+ Revision: 785465
-- imported package pyatspi
+%files -n python2-atspi
+%doc COPYING COPYING.GPL AUTHORS README
+%{py2_puresitedir}/pyatspi
 
