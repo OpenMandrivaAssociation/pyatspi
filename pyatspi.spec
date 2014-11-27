@@ -26,26 +26,22 @@ ORBIT / CORBA for its transport protocol.
 
 This package includes a python client library for at-spi.
 
-%package -n python-atspi
+%package -n python3-atspi
 Summary:	Python bindings for at-spi
 Group:		Development/Python
-Requires:	python-dbus
-Requires:	python-gi
-# both pkgs are incorrect
-%rename		pyatspi
-%rename		python-pyatspi
-%rename		python3-atspi
+Requires:	python3-dbus
+Requires:	python3-gi
 
-%description -n python-atspi
+%description -n python3-atspi
 This package includes a python client library for at-spi.
 
-%package -n python2-atspi
+%package -n python-atspi
 Summary:	Python3 bindings for at-spi
 Group:		Development/Python
 Requires:	python-dbus
 Requires:	python-gobject3
 
-%description -n python2-atspi
+%description -n python-atspi
 This package includes a python3 client library for at-spi.
 
 %prep
@@ -71,10 +67,10 @@ popd
 %makeinstall_std
 %makeinstall_std -C py3build
 
-%files -n python-atspi
+%files -n python3-atspi
 %doc COPYING COPYING.GPL AUTHORS README
 /usr/lib/python3.3/site-packages/pyatspi/*
 
-%files -n python2-atspi
+%files -n python-atspi
 %doc COPYING COPYING.GPL AUTHORS README
 /usr/lib/python2.7/site-packages/pyatspi/*
