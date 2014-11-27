@@ -73,9 +73,8 @@ popd
 
 %files -n python-atspi
 %doc COPYING COPYING.GPL AUTHORS README
-%{py3_puresitedir}/pyatspi
+/usr/lib/python3.3/site-packages/pyatspi/*
 
 %files -n python2-atspi
 %doc COPYING COPYING.GPL AUTHORS README
-%{py2_puresitedir}/pyatspi
-
+/usr/lib/python2.7/site-packages/pyatspi/*
