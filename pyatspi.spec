@@ -2,7 +2,7 @@
 
 Summary:	Python bindings for at-spi
 Name:		pyatspi
-Version:	2.5.1
+Version:	2.5.5
 Release:	1
 Epoch:		1
 Group:		Development/Python

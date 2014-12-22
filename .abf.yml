@@ -1,4 +1,5 @@
 removed_sources:
+  pyatspi-2.14.0.tar.xz: caa61545fdbef46054571d268aa69bbba497586d
   pyatspi-2.8.0.tar.xz: 0f75a4cb82264f594e89d40814f0ef6c5f02d68d
 sources:
-  pyatspi-2.14.0.tar.xz: caa61545fdbef46054571d268aa69bbba497586d
+  pyatspi-2.5.5.tar.xz: e8631b1104f93d8d4ce9ef415f52a0f70ce79d6f
