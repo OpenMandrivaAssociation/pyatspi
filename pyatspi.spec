@@ -3,7 +3,7 @@
 Summary:	Python bindings for at-spi
 Name:		pyatspi
 Version:	2.5.5
-Release:	1
+Release:	2
 Epoch:		1
 Group:		Development/Python
 License:	LGPLv2 and GPLv2
@@ -15,6 +15,11 @@ BuildRequires:  python
 BuildRequires:  pkgconfig(pygobject-3.0) >= 2.90.1
 
 Requires:	python-dbus
+
+#remove if upgrade to cooker version
+Obsoletes: python-atspi
+Obsoletes: python3-atspi
+
 
 %description
 at-spi allows assistive technologies to access GTK-based
