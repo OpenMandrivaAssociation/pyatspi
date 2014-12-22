@@ -2,17 +2,19 @@
 
 Summary:	Python bindings for at-spi
 Name:		pyatspi
-Version:	2.14.0
+Version:	2.5.1
 Release:	1
+Epoch:		1
 Group:		Development/Python
 License:	LGPLv2 and GPLv2
-Url:		http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/pyatspi/%{url_ver}/%{name}-%{version}.tar.xz
+URL:		http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
+Source0:	http://download.gnome.org/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 BuildArch:	noarch
-BuildRequires:	python
-BuildRequires:	python3
-BuildRequires:	python-gobject3-devel
-BuildRequires:	pkgconfig(pygobject-3.0) >= 2.90.1
+
+BuildRequires:  python
+BuildRequires:  pkgconfig(pygobject-3.0) >= 2.90.1
+
+Requires:	python-dbus
 
 %description
 at-spi allows assistive technologies to access GTK-based
@@ -26,51 +28,18 @@ ORBIT / CORBA for its transport protocol.
 
 This package includes a python client library for at-spi.
 
-%package -n python3-atspi
-Summary:	Python bindings for at-spi
-Group:		Development/Python
-Requires:	python3-dbus
-Requires:	python3-gi
-
-%description -n python3-atspi
-This package includes a python client library for at-spi.
-
-%package -n python-atspi
-Summary:	Python3 bindings for at-spi
-Group:		Development/Python
-Requires:	python-dbus
-Requires:	python-gobject3
-
-%description -n python-atspi
-This package includes a python3 client library for at-spi.
-
 %prep
 %setup -q
-mkdir ../py3build
-cp -a . ../py3build
-mv ../py3build .
 
 %build
-export PYTHON=python2
 %configure2_5x \
 	--build=%{_build}
-
-pushd py3build
-export PYTHON=python3
-%configure2_5x \
-	--build=%{_build}
-popd
 
 %make
 
 %install
 %makeinstall_std
-%makeinstall_std -C py3build
 
-%files -n python3-atspi
+%files
 %doc COPYING COPYING.GPL AUTHORS README
-/usr/lib/python3.3/site-packages/pyatspi/*
-
-%files -n python-atspi
-%doc COPYING COPYING.GPL AUTHORS README
-/usr/lib/python2.7/site-packages/pyatspi/*
+%{py_puresitedir}/pyatspi
