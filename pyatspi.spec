@@ -2,7 +2,7 @@
 
 Summary:	Python bindings for at-spi
 Name:		pyatspi
-Version:	2.33.2
+Version:	2.33.90
 Release:	1
 Group:		Development/Python
 License:	LGPLv2 and GPLv2
