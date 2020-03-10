@@ -38,43 +38,19 @@ Requires:	python-gi
 %description -n python-atspi
 This package includes a python client library for at-spi.
 
-%package -n python2-atspi
-Summary:	Python3 bindings for at-spi
-Group:		Development/Python
-Requires:	python2-dbus
-Requires:	python2-gobject3
-
-%description -n python2-atspi
-This package includes a python3 client library for at-spi.
-
 %prep
 %setup -q
-mkdir ../py3build
-cp -a . ../py3build
-mv ../py3build .
 
 %build
-export PYTHON=%{__python2}
-%configure2_5x \
+
+%configure \
 	--build=%{_build}
 
-pushd py3build
-export PYTHON=%{__python3}
-%configure2_5x \
-	--build=%{_build}
-popd
-
-%make
+%make_build
 
 %install
-%makeinstall_std
-%makeinstall_std -C py3build
+%make_install
 
 %files -n python-atspi
 %doc COPYING COPYING.GPL AUTHORS README
 %{py3_puresitedir}/pyatspi
-
-%files -n python2-atspi
-%doc COPYING COPYING.GPL AUTHORS README
-%{py2_puresitedir}/pyatspi
-
