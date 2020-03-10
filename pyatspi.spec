@@ -2,15 +2,14 @@
 
 Summary:	Python bindings for at-spi
 Name:		pyatspi
-Version:	2.34.0
-Release:	2
+Version:	2.36.0
+Release:	1
 Group:		Development/Python
 License:	LGPLv2 and GPLv2
 Url:		http://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/pyatspi/%{url_ver}/%{name}-%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	python
-BuildRequires:	python3
 BuildRequires:	python-gobject3-devel
 BuildRequires:	pkgconfig(pygobject-3.0) >= 2.90.1
 
