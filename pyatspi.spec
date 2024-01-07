@@ -52,5 +52,5 @@ This package includes a python client library for at-spi.
 %make_install
 
 %files -n python-atspi
-%doc COPYING COPYING.GPL AUTHORS README
+%doc COPYING COPYING.GPL AUTHORS README*
 %{py3_puresitedir}/pyatspi
