@@ -39,7 +39,7 @@ Requires:	python-gi
 This package includes a python client library for at-spi.
 
 %prep
-%autosetup -1
+%autosetup -p1
 
 %build
 %configure \
