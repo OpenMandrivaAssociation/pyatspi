@@ -3,7 +3,7 @@
 Summary:	Python bindings for at-spi
 Name:		pyatspi
 Version:	2.46.1
-Release:	3
+Release:	4
 Group:		Development/Python
 License:	LGPLv2 and GPLv2
 Url:		https://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
