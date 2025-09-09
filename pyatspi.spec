@@ -2,13 +2,14 @@
 
 Summary:	Python bindings for at-spi
 Name:		pyatspi
-Version:	2.46.1
-Release:	4
+Version:	2.57.0
+Release:	1
 Group:		Development/Python
 License:	LGPLv2 and GPLv2
 Url:		https://www.linuxfoundation.org/en/AT-SPI_on_D-Bus
 Source0:	https://ftp.gnome.org/pub/GNOME/sources/pyatspi/%{url_ver}/%{name}-%{version}.tar.xz
 BuildArch:	noarch
+BuildRequires:	meson
 BuildRequires:	python
 BuildRequires:	python-gobject3-devel
 BuildRequires:	pkgconfig(pygobject-3.0) >= 2.90.1
@@ -42,13 +43,11 @@ This package includes a python client library for at-spi.
 %autosetup -p1
 
 %build
-%configure \
-	--build=%{_build}
-
-%make_build
+%meson
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 %files -n python-atspi
 %doc COPYING COPYING.GPL AUTHORS README*
